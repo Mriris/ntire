@@ -35,7 +35,8 @@ uv sync
 
 ## 预训练权重与数据集
 
-- 下载 [ImageNet 预训练权重](https://drive.google.com/file/d/1aZQyF16pziCxKlo7BvHHkrMwb8-RurO_/view?usp=sharing) 和 [模型权重](https://drive.google.com/file/d/1M2n6g7S5_sqPmTIAuI-IC30fhUmQr199/view?usp=sharing)
+- 下载 [模型权重 (best.pkl)](https://github.com/Mriris/ntire/releases/download/v1.0/best.pkl)
+- 下载 [ImageNet 预训练权重](https://drive.google.com/file/d/1aZQyF16pziCxKlo7BvHHkrMwb8-RurO_/view?usp=sharing)
 - 下载 [数据集](https://drive.google.com/drive/folders/1eeBA2V_l9-evSJ0XWhRAww6ftweq8hU_?usp=sharing)
 
 训练集对 NH-HAZE-2020 进行了伽马校正处理。测试集由训练集中随机抽取的样本组成，用于评估训练效果。如需获取 NH-HAZE-2021 的验证和测试精度，请前往[官方比赛服务器](https://competitions.codalab.org/competitions/28032#learn_the_details-overview)。
