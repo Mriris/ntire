@@ -1,0 +1,13 @@
+[project]
+name = "ntire"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "opencv-python",
+    "scikit-image",
+    "tensorboardx",
+    "torch",
+    "torchvision",
+]
