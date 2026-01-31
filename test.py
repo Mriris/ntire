@@ -33,7 +33,7 @@ parser.add_argument('--rcan_model', default='', type=str, help='load trained mod
 args = parser.parse_args()
 
 # val_dataset = os.path.join(args.data_dir, 'OMSD/test/hazy')
-val_dataset = "datasets/test/hazy"
+val_dataset = "datasets/test/enhance"
 predict_result= args.predict_result
 test_batch_size=args.test_batch_size
 
@@ -74,14 +74,18 @@ with torch.no_grad():
     imsave_dir = output_dir
     if not os.path.exists(imsave_dir):
         os.makedirs(imsave_dir)
-    for batch_idx, (hazy, name) in enumerate(val_loader):
+    for batch_idx, (hazy, name, orig_size) in enumerate(val_loader):
         # print(str(name))
         # print(len(val_loader))
-        
+
         start = time.time()
         hazy = hazy.to(device)
-        
+
         img_tensor = MyEnsembleNet(hazy)
+
+        # Resize back to original size
+        orig_h, orig_w = orig_size[0].item(), orig_size[1].item()
+        img_tensor = F.interpolate(img_tensor, size=(orig_h, orig_w), mode='bilinear', align_corners=False)
 
         end = time.time()
         time_list.append((end - start))
